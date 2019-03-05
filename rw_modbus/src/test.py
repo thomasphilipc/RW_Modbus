@@ -1,7 +1,11 @@
 import config
+import modbus_handler
 
 
 cfg =config.get_config()
+
+
+
 
 class slave_device_template:
     slave_template_type = None
@@ -24,7 +28,7 @@ class slave_device_template:
 
 
 # class to hold the slave-id, device-type and registers
-class slave_device(slave_device_template):
+class slave_device:
     slave_id= None
     slave_id_template=None
     registers = []
@@ -39,10 +43,12 @@ class slave_device(slave_device_template):
         self.registers=slave_device_template.poll_list
 
     def modbus_register(self):
+        modbus_register_list=[]
         for item in self.registers:
             (description,function_code,register_address,register_multiplier,num_of_decimals,signed,register_type)=(item[0],item[1],item[2],item[3],item[4],item[5],item[6])
-            print (description)
-            print(num_of_decimals)
+            this=(function_code,register_address,register_multiplier,register_type)
+            modbus_register_list.append(this)
+        return(modbus_register_list)
 
     def show_slave_device(self):
         print("Slave id is {}".format(self.slave_id))
@@ -87,6 +93,7 @@ for k in range(len(cfg["slave_template"])):
 slave_device_list=[]
 print("Total number of salves is {}".format(len(cfg["slaves"])))
 # iterate through all the slaves in config
+
 for index in range(len(cfg["slaves"])):
     #creating a slave
     this_slave = slave_device(cfg["slaves"][index]["slave_id"],cfg["slaves"][index]["slave_template_id"])
@@ -100,3 +107,6 @@ for index in range(len(cfg["slaves"])):
 for item in slave_device_list:
     item.show_slave_device()
 
+for modbus_asset in modbus_handler.modbus(slave_device_list):
+    modbus_asset.read_modbus_for_asset()
+    modbus_asset.send_data()
