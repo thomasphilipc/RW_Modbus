@@ -1,0 +1,143 @@
+{  
+   "config_info":{  
+      "config_version":"0.1",
+      "created_by":"thomas.philip@roamworks.com",
+      "created_date":"2019-03-01T00:00:00.000Z",
+      "created_for":"EASTRON SDM630"
+   },
+   "interface":{  
+      "comport":"COM7",
+      "baudrate":"9600",
+      "parity":"N",
+      "stopbit":"1"
+   },
+   "slave_template":[  
+         {  
+            "slave_template_id":"1",
+            "commands":{  
+               "tag_1":{  
+                  "description":"Phase 1 Line to Neutral Volts",
+                  "function_code":"03",
+                  "register_address":"30001",
+                  "register_multiplier":"2",
+                  "num_of_decimals":"0",
+                  "signed":false,
+                  "register_type":"01"
+               },
+               "tag_2":{  
+                  "description":"Phase 2 Line to Neutral Volts",
+                  "function_code":"03",
+                  "register_address":"30003",
+                  "register_multiplier":"2",
+                  "num_of_decimals":"0",
+                  "signed":false,
+                  "register_type":"01"
+               },
+               "tag_3":{  
+                  "description":"Phase 3 Line to Neutral Volts",
+                  "function_code":"03",
+                  "register_address":"30005",
+                  "register_multiplier":"2",
+                  "num_of_decimals":"0",
+                  "signed":false,
+                  "register_type":"01"
+               },
+               "tag_4":{  
+                  "description":"Phase 1 Current",
+                  "function_code":"03",
+                  "register_address":"30007",
+                  "register_multiplier":"2",
+                  "num_of_decimals":"0",
+                  "signed":false,
+                  "register_type":"01"
+               },
+               "tag_5":{  
+                  "description":"Phase 2 Current",
+                  "function_code":"03",
+                  "register_address":"30009",
+                  "register_multiplier":"2",
+                  "num_of_decimals":"0",
+                  "signed":false,
+                  "register_type":"01"
+               },
+               "tag_6":{  
+                  "description":"Phase 3 Current",
+                  "function_code":"03",
+                  "register_address":"30011",
+                  "register_multiplier":"2",
+                  "num_of_decimals":"0",
+                  "signed":false,
+                  "register_type":"01"
+               }
+            },
+            "description":"EASTRON SDM 630"
+         },
+         {  
+            "slave_template_id":"2",
+            "commands":{  
+               "tag_1":{  
+                  "description":"current A",
+                  "function_code":"03",
+                  "register_address":"4000",
+                  "register_multiplier":"1",
+                  "num_of_decimals":"0",
+                  "signed":false,
+                  "register_type":"01"
+               },
+               "tag_2":{  
+                  "description":"current A",
+                  "function_code":"03",
+                  "register_address":"4000",
+                  "register_multiplier":"1",
+                  "num_of_decimals":"0",
+                  "signed":false,
+                  "register_type":"01"
+               },
+               "tag_3":{  
+                  "description":"current A",
+                  "function_code":"03",
+                  "register_address":"4000",
+                  "register_multiplier":"1",
+                  "num_of_decimals":"0",
+                  "signed":false,
+                  "register_type":"01"
+               },
+               "tag_4":{  
+                  "description":"current A",
+                  "function_code":"03",
+                  "register_address":"4000",
+                  "register_multiplier":"1",
+                  "num_of_decimals":"0",
+                  "signed":false,
+                  "register_type":"01"
+               },
+               "tag_5":{  
+                  "description":"current A",
+                  "function_code":"03",
+                  "register_address":"4000",
+                  "register_multiplier":"1",
+                  "num_of_decimals":"0",
+                  "signed":false,
+                  "register_type":"01"
+               }
+            },
+            "description":"DEEP SEA PANEL"
+         }
+      ],
+
+   "slaves_total_num":"3",
+   "slaves":[  
+      {  
+         "slave_id":"1",
+         "slave_template_id":"1"
+      },
+      {  
+         "slave_id":"2",
+         "slave_template_id":"2"
+      },
+      {  
+         "slave_id":"3",
+         "slave_template_id":"2"
+      }
+   ]
+}
