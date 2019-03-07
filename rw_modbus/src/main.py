@@ -3,6 +3,8 @@ from time import sleep
 import datetime
 import Queue
 import sys
+import asset_handler
+import modbus_handler
 
 # repeated timer
 class perpetualTimer():
@@ -26,17 +28,24 @@ class perpetualTimer():
 
 def start_app():
 
-    q = Queue()
-    t = perpetualTimer(5, task1)
-    t1 = perpetualTimer(10, task2)
-    t.start(q)
-    t1.start(q)
+
+    slave_device_list = asset_handler.gather_slaves()
+    print(slave_device_list)
+    print("Going to read the modbus information")
+
+    modbus_to_poll=modbus_handler.modbus(slave_device_list)
+
+
+
+    q = Queue.Queue()
 
     while True:
         global now
         now = datetime.datetime.now()
-        print(" {}:{}:{} : 1 sec timer".format(now.hour,now.minute,now.second))
-        sleep(1)
+        for modbus_asset in modbus_to_poll:
+            modbus_asset.read_modbus_for_asset()
+            modbus_asset.send_data()
+        sleep(10)
         if not q.empty():
             item = q.get()
             print(item)
@@ -76,8 +85,7 @@ def main(argv=sys.argv):
     for option, value in opts:
         if option in ('-h', '--help'):
             usage()
-    logconfig('info')	#set log level，such as"info"
-    #instantiates a startWork object and start event loop or invoke start_app() directly
+
     start_app()
 
 if __name__=='__main__':

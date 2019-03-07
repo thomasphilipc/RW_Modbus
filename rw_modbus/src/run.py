@@ -8,17 +8,21 @@ import threading
 from save_as_csv import *
 from send_to_ftp import *
 from pymongo import MongoClient
-
-
-
+import config
 from time import gmtime,strftime
+
+secrets = config.get_secrets()
+
+mongo_connection = str(secrets["mongo-string"])
+
+
 
 
 
 fmt = "%Y-%m-%d %H:%M:%S"
 
 # mongodb connection
-myclient = MongoClient("mongodb+srv://admin:W1nd0ws87@cluster0-wkvwq.gcp.mongodb.net/test?retryWrites=true")
+myclient = MongoClient(mongo_connection)
 mydb = myclient["mydatabase"]
 mycol = mydb["modbus"]
 

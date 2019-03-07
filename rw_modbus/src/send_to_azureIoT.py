@@ -28,7 +28,7 @@ def send_data(message_data,asset_name):
     message = IoTHubMessage(message)
     client.send_event_async(message, send_confirmation_callback,asset_name)
     print("Message transmitted to IoT Hub")
-    time.sleep(1)
+    time.sleep(3)
 
 
 
