@@ -18,7 +18,7 @@
                "tag_1":{  
                   "description":"Phase 1 Line to Neutral Volts",
                   "function_code":"03",
-                  "register_address":"30001",
+                  "register_address":"0",
                   "register_multiplier":"2",
                   "num_of_decimals":"0",
                   "signed":false,
@@ -27,7 +27,7 @@
                "tag_2":{  
                   "description":"Phase 2 Line to Neutral Volts",
                   "function_code":"03",
-                  "register_address":"30003",
+                  "register_address":"1",
                   "register_multiplier":"2",
                   "num_of_decimals":"0",
                   "signed":false,
@@ -36,7 +36,7 @@
                "tag_3":{  
                   "description":"Phase 3 Line to Neutral Volts",
                   "function_code":"03",
-                  "register_address":"30005",
+                  "register_address":"2",
                   "register_multiplier":"2",
                   "num_of_decimals":"0",
                   "signed":false,
@@ -45,7 +45,7 @@
                "tag_4":{  
                   "description":"Phase 1 Current",
                   "function_code":"03",
-                  "register_address":"30007",
+                  "register_address":"139",
                   "register_multiplier":"2",
                   "num_of_decimals":"0",
                   "signed":false,
@@ -54,7 +54,7 @@
                "tag_5":{  
                   "description":"Phase 2 Current",
                   "function_code":"03",
-                  "register_address":"30009",
+                  "register_address":"140",
                   "register_multiplier":"2",
                   "num_of_decimals":"0",
                   "signed":false,
@@ -63,7 +63,7 @@
                "tag_6":{  
                   "description":"Phase 3 Current",
                   "function_code":"03",
-                  "register_address":"30011",
+                  "register_address":"141",
                   "register_multiplier":"2",
                   "num_of_decimals":"0",
                   "signed":false,
@@ -78,43 +78,43 @@
                "tag_1":{  
                   "description":"current A",
                   "function_code":"03",
-                  "register_address":"4000",
+                  "register_address":"12",
                   "register_multiplier":"1",
                   "num_of_decimals":"0",
                   "signed":false,
                   "register_type":"01"
                },
                "tag_2":{  
-                  "description":"current A",
+                  "description":"current B",
                   "function_code":"03",
-                  "register_address":"4000",
+                  "register_address":"14",
                   "register_multiplier":"1",
                   "num_of_decimals":"0",
                   "signed":false,
                   "register_type":"01"
                },
                "tag_3":{  
-                  "description":"current A",
+                  "description":"current C",
                   "function_code":"03",
-                  "register_address":"4000",
+                  "register_address":"13",
                   "register_multiplier":"1",
                   "num_of_decimals":"0",
                   "signed":false,
                   "register_type":"01"
                },
                "tag_4":{  
-                  "description":"current A",
+                  "description":"Temperature",
                   "function_code":"03",
-                  "register_address":"4000",
+                  "register_address":"1",
                   "register_multiplier":"1",
                   "num_of_decimals":"0",
                   "signed":false,
                   "register_type":"01"
                },
                "tag_5":{  
-                  "description":"current A",
+                  "description":"Humidity",
                   "function_code":"03",
-                  "register_address":"4000",
+                  "register_address":"21",
                   "register_multiplier":"1",
                   "num_of_decimals":"0",
                   "signed":false,
@@ -129,15 +129,18 @@
    "slaves":[  
       {  
          "slave_id":"1",
-         "slave_template_id":"1"
+         "slave_template_id":"1",
+         "enabled": true
       },
       {  
          "slave_id":"2",
-         "slave_template_id":"2"
+         "slave_template_id":"2",
+         "enabled": true
       },
       {  
          "slave_id":"3",
-         "slave_template_id":"2"
+         "slave_template_id":"2",
+         "enabled": true
       }
    ]
 }

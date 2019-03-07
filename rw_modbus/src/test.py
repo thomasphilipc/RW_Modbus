@@ -102,7 +102,10 @@ for index in range(len(cfg["slaves"])):
         slave_template_id=slave_type.get_slave_id()
         if (slave_template_id==cfg["slaves"][index]["slave_template_id"]):
             this_slave.gather_registers(slave_type)
-    slave_device_list.append(this_slave)
+    if (cfg["slaves"][index]["enabled"]):
+        slave_device_list.append(this_slave)
+    else:
+        print("Slave with id:{} not added".format(cfg["slaves"][index]["slave_id"]))
 
 for item in slave_device_list:
     item.show_slave_device()

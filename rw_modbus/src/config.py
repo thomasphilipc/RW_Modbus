@@ -18,3 +18,17 @@ def get_config():
     except Exception:
         raise
     return config
+
+
+def get_secrets():
+    try:
+
+        path=os.chdir(CONFIG_PATH)
+        print (os.getcwd())
+
+        #with open(APP_PATH + MYAPP_NAME + "/temp_config.json", "r") as f:
+        with open(CONFIG_PATH + "/secrets.hide", "r") as f:
+            config = json.loads("".join(f.readlines()))
+    except Exception:
+        raise
+    return config
