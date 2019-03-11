@@ -135,12 +135,12 @@
       {  
          "slave_id":"2",
          "slave_template_id":"2",
-         "enabled": true
+         "enabled": false
       },
       {  
          "slave_id":"3",
          "slave_template_id":"2",
-         "enabled": true
+         "enabled": false
       }
    ]
 }

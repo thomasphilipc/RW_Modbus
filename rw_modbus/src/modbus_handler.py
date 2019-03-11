@@ -3,6 +3,7 @@ import random
 import send_to_azureIoT
 import time
 import datetime
+import send_to_ubidots
 
 minimalmodbus.TIMEOUT=0.15
 class Asset():
@@ -59,8 +60,8 @@ class Asset():
         print("This will the function to pack the data that needs to be send to server")
         payload=self.generate_data()
         print(payload)
-        send_to_azureIoT.send_data(self.generate_data(),self.asset_name)
-
+        #send_to_azureIoT.send_data(self.generate_data(),self.asset_name)
+        send_to_ubidots.send_data(self.generate_data(),self.asset_name)
 
 #this will change in production
 port ='COM1'
